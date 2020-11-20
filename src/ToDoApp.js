@@ -16,7 +16,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
   // `const reducer = (state = { count: 0 }, action) => {}`
   // = `reducer, { conut: 0 }` conut 부분이 state
-  // dispatch : reducer에 action을 보내줌
+  // dispatch : action을 가지고 reducer function다시 실행함
   return (
     <>
       <h1>{state.count}</h1>
