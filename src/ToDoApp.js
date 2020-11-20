@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: INCREMENT })}></button>
+      <button onClick={() => dispatch({ type: INCREMENT })}>Add</button>
     </>
   );
 }
