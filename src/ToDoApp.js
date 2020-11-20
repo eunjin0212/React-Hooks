@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 
-const reducer = (state, potato) => {
+const reducer = (state, action) => {
   //state : 현재
-  switch (potato.type) {
+  switch (action.type) {
     case "increment":
       return { count: state.count + 1 };
     case "decrement":
