@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-export const UserContext = React.createContext(); //데이터 저장소
+const UserContext = React.createContext(); //데이터 저장소
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({
-    name: "Nico",
+    name: "Eunjin",
     loggedIn: false,
   });
   const logUserIn = () => setUser({ ...user, loggedIn: true });
   return (
-    <UserContext.Provider value={{ user, logUserIn }}>
+    <UserContext.Provider value={{ user, fn: { logUserIn } }}>
       {children}
     </UserContext.Provider>
   );
 };
 
+export const useUser = () => {
+  const { user } = useContext(UserContext);
+  return user;
+};
+export const useFns = () => {
+  const { fn } = useContext(UserContext);
+  return fn;
+};
 export default UserContextProvider;
