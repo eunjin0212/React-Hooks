@@ -1,5 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./ToDoApp";
+import App from "./components/ToDoApp";
+import ToDosProvider from "./context";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <ToDosProvider>
+    <App />
+  </ToDosProvider>,
+  document.getElementById("root")
+);
