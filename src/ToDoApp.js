@@ -6,9 +6,9 @@ const initialState = {
 const ADD = "increment";
 
 const reducer = (state, action) => {
-  switch (action) {
+  switch (action.type) {
     case ADD:
-      return { count: state.count + 1 };
+      return { toDos: [...state.toDos, { text: action.payload }] };
 
     default:
       throw new Error("This is Error");
@@ -18,7 +18,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [newToDo, setNewToDo] = useState("");
   const onSubmit = (e) => {
-    e.preventDeafult();
+    e.preventDefault();
     dispatch({ type: ADD, payload: newToDo });
   };
   const onChange = (e) => {
@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <h1>Add To Do</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           value={newToDo}
           type="text"
@@ -39,6 +39,12 @@ function App() {
           onChange={onChange}
         />
       </form>
+      <ul>
+        <h2>To Dos</h2>
+        {state.toDos.map((toDo, index) => (
+          <li key={index}>{toDo.text}</li>
+        ))}
+      </ul>
     </>
   );
 }
