@@ -14,7 +14,7 @@ const reducer = (state, action) => {
     case DEL:
       return {
         toDos: state.toDos.filter((toDo) => {
-          console.log("Current : " + toDo.id, action.payload);
+          console.log("Current : " + toDo.id, "Target : " + action.payload);
           return toDo.id !== action.payload;
         }),
       };
