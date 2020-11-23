@@ -17,16 +17,20 @@ const Button = styled.button`
   all: unset;
   margin-left: 10px;
   padding: 8px 16px;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
   font-weight: 600;
   font-size: 16px;
-  background-color: rgb(134, 211, 221);
+  background-color: #ff80ab;
   color: #f0f1f3;
-  box-shadow: 0px 16px 32px -12px rgba(83, 92, 104, 0.9);
   :hover {
     cursor: pointer;
-    background-color: rgba(134, 211, 221, 0.7); //click시 클릭 애니매이션 넣기
+    //background-color: #ff4081; //click시 클릭 애니매이션 넣기
+  }
+  :active {
+    background-color: #ff4081;
+    box-shadow: 0px 16px 32px -12px rgba(83, 92, 104, 0.9);
+    transform: translateY(4px);
   }
 `;
 
@@ -53,7 +57,9 @@ export default () => {
         onChange={onChange}
         autoFocus={true}
       />
-      <Button type="button" value="add" onClick={onSubmit} />
+      <Button type="button" value="add" onClick={onSubmit}>
+        Add
+      </Button>
     </Form>
   );
 };

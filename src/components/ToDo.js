@@ -7,13 +7,17 @@ const List = styled.li`
   display: flex;
   padding-left: 10px;
   margin-bottom: 5px;
+  justify-content: space-between;
 `;
 const CheckBox = styled.span`
-  color: #86d3dd;
+  color: #ff80ab;
   font-size: 20px;
   margin-right: 10px;
   cursor: pointer;
-  :hover {
+  :active {
+    color: #ff4081;
+    box-shadow: 0px 16px 32px -12px rgba(83, 92, 104, 0.9);
+    transform: translateY(4px);
   }
 `;
 const Todo = styled.input`
@@ -30,14 +34,20 @@ const Btn = styled.button`
   all: unset;
   margin-left: 10px;
   cursor: pointer;
-  :hover {
+  :active {
+    color: #ff4081;
+    box-shadow: 0px 16px 32px -12px rgba(83, 92, 104, 0.9);
+    transform: translateY(4px);
   }
 `;
 const BackBtn = styled.button`
   all: unset;
   margin-left: 65px;
   cursor: pointer;
-  :hover {
+  :active {
+    color: #ff4081;
+    box-shadow: 0px 16px 32px -12px rgba(83, 92, 104, 0.9);
+    transform: translateY(4px);
   }
 `;
 
@@ -58,7 +68,7 @@ export default ({ text, id, isCompleted }) => {
     target[0].disabled = true;
   };
 
-  const editHandler = (e) => {
+  const edit = (e) => {
     const { target } = e;
     switch (target.nodeName) {
       case "BUTTON":
@@ -75,47 +85,43 @@ export default ({ text, id, isCompleted }) => {
         return;
     }
   };
-  const checkBox = () => {
-    if (!isCompleted) {
-      return <CheckBox>▢</CheckBox>;
-    } else {
-      return <CheckBox>☑</CheckBox>;
-    }
-  };
 
   return (
-    <List>
-      <form onSubmit={onSubmit}>
-        <CheckBox
-          role="img"
-          aria-label=""
-          onClick={() => dispatch({ type: COMPLETE, payload: id })}
-        >
-          {checkBox()}
-        </CheckBox>
+    <>
+      <List>
+        <form onSubmit={onSubmit}>
+          <CheckBox>-</CheckBox>
+          {!isCompleted ? (
+            <Todo type="text" value={editedToDo} onChange={onChange} disabled />
+          ) : (
+            <Completed
+              type="text"
+              value={editedToDo}
+              onChange={onChange}
+              disabled
+            />
+          )}
+        </form>
         {!isCompleted ? (
-          <Todo type="text" value={editedToDo} onChange={onChange} disabled />
+          <>
+            <div>
+              <Btn onClick={edit}>Edit</Btn>
+              <Btn onClick={() => dispatch({ type: DEL, payload: id })}>X</Btn>
+              <Btn onClick={() => dispatch({ type: COMPLETE, payload: id })}>
+                V
+              </Btn>
+            </div>
+          </>
         ) : (
-          <Completed
-            type="text"
-            value={editedToDo}
-            onChange={onChange}
-            disabled
-          />
+          <>
+            <BackBtn
+              onClick={() => dispatch({ type: UNCOMPLETE, payload: id })}
+            >
+              Back
+            </BackBtn>
+          </>
         )}
-      </form>
-      {!isCompleted ? (
-        <>
-          <Btn onClick={editHandler}>Edit</Btn>
-          <Btn onClick={() => dispatch({ type: DEL, payload: id })}>X</Btn>
-        </>
-      ) : (
-        <>
-          <BackBtn onClick={() => dispatch({ type: UNCOMPLETE, payload: id })}>
-            Back
-          </BackBtn>
-        </>
-      )}
-    </List>
+      </List>
+    </>
   );
 };

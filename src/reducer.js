@@ -31,8 +31,10 @@ const reducer = (state, action) => {
       );
       return {
         ...state,
-        completed: state.completed.filter((toDo) => toDo.id !== action.payload),
         toDos: [...state.toDos, { ...aTarget }],
+        completed: state.completed.filter(
+          (complete) => complete.id !== action.payload
+        ),
       };
     case EDIT:
       const bTarget = state.toDos.find((toDo) => toDo.id === action.id);
