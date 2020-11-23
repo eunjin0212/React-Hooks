@@ -29,7 +29,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://eunjin0212.github.io/React-Hooks",
   "browserslist": {
     "production": [
       ">0.2%",
