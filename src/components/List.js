@@ -8,6 +8,8 @@ const H2 = styled.h2`
   margin: 0;
   padding-bottom: 10px;
 `;
+
+// eslint-disable-next-line
 export default ({ title, children }) => (
   <>
     <Ul>

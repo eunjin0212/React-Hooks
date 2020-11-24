@@ -28,6 +28,8 @@ const GoalDiv = styled.div`
   text-transform: uppercase;
   letter-spacing: 0.5px;
 `;
+
+// eslint-disable-next-line
 export default () => {
   const { toDos, completed } = useState();
   const percent = Math.floor(

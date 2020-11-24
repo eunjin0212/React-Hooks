@@ -49,6 +49,7 @@ const Text = styled.span`
   }
 `;
 
+// eslint-disable-next-line
 export default ({ children }) => {
   return (
     <Container>

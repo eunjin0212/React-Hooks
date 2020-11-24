@@ -51,6 +51,7 @@ const BackBtn = styled.button`
   }
 `;
 
+// eslint-disable-next-line
 export default ({ text, id, isCompleted }) => {
   const [editedToDo, setEditedToDo] = useState(text);
   const dispatch = useDispatch();

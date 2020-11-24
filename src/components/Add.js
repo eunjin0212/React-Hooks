@@ -33,7 +33,7 @@ const Button = styled.button`
     transform: translateY(4px);
   }
 `;
-
+// eslint-disable-next-line
 export default () => {
   const [newToDo, setNewToDo] = useState("");
   const dispatch = useDispatch();
