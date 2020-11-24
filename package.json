@@ -28,7 +28,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://inspiring-banach-184cb0.netlify.app/",
+  "homepage": "https://eunjin0212todolist.netlify.app/",
   "browserslist": {
     "production": [
       ">0.2%",
