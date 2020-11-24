@@ -1,11 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/ToDoApp";
-import ToDosProvider from "./context";
+import App from "./App";
 
-ReactDOM.render(
-  <ToDosProvider>
-    <App />
-  </ToDosProvider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
+
+//rename index.js file, Translate folder

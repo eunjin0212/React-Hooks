@@ -1,5 +1,5 @@
 import React from "react";
-import { useSetLang, useT } from "./Translatecontext";
+import { useSetLang, useT } from "./context";
 
 export default () => {
   const setLang = useSetLang();

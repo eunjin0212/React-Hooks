@@ -1,7 +1,7 @@
 import React from "react";
 import translations from "./translations";
 import Lang from "./context";
-import Screen from "./Screen";
+import Screen from "./screen";
 
 function App() {
   return (
